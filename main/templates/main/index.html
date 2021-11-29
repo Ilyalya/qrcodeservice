@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1 class="display-3 text-center mb-3">Сервис генерации QR-кодов</h1>
+<h1>Ваши QR-коды</h1>
+{% if qrcodes %}
+{% for el in qrcodes %}
+    <div class="alert alert-warning mt-2">
+        <h3>{{ el.qr_name }}</h3>
+        <p>{{ el.qr_link }}</p>
+        <img src="{{media_url}}{{ el.qr_img.url }}">
+    </div>
+{% endfor %}
+{% else %}
+<p>У вас нет QR-кодов!</p>
+{% endif %}
+{% endblock %}

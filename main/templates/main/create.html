@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block create %}
+  <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="display-3 text-center mb-3">Сервис генерации QR-кодов</h1>
+                <form method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <h4>Введите название вашего QR-кода</h4>
+                        {{ form.qr_name }}<br>
+                        <h4>Добавьте ссылку на веб-сервис</h4>
+                        {{ form.qr_link }}<br>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Сгененрировать QR-код
+                </button>
+                </form>
+                <span>{{ error }}</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
