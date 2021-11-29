@@ -27,6 +27,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,14 +81,15 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5o228ptb0sd3s',
-        'HOST': 'ec2-54-195-76-73.eu-west-1.compute.amazonaws.com',
-        'USER': 'fkcajzfnvuexlc',
-        'PASSWORD': '5c5b913ac9eb031f42e0d8992ea18a7b6a1a845b7f5cc82c518a679d21cfdae3',
-        'PORT': '5432',
+        'NAME': 'oblako',
+        'HOST': '127.0.0.1',
+        'PORT': '5433',
     }
 }
-
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
