@@ -76,10 +76,14 @@ WSGI_APPLICATION = 'qrcodeservice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'HOST' : '127.0.0.1',
-        # 'PORT' : '5433',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5o228ptb0sd3s',
+        'HOST': 'ec2-54-195-76-73.eu-west-1.compute.amazonaws.com',
+        'USER': 'fkcajzfnvuexlc',
+        'PASSWORD': '5c5b913ac9eb031f42e0d8992ea18a7b6a1a845b7f5cc82c518a679d21cfdae3',
+        'PORT': '5432',
     }
 }
 
