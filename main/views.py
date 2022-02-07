@@ -35,7 +35,6 @@ def create(request):
             path = 'media/media/' + filename
             img.save(path)
             form = Qrcodes(qr_name=qr_name, qr_link=qr_link, qr_img='media/'+filename)
-            # qr_img = form.cleaned_data.get("path")
             form.save()
     form = QrcodesForm()
     context = {
